@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Consultoria - Soluções Inteligentes</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        :root {
+            --deep-blue: #001f3e;
+            --deep-brown: #81563d;
+            --deep-dark: #292929;
+            --accent-blue: #0555a5;
+            --accent-light-blue: #a2c6ea;
+            --accent-dark-brown: #503627;
+            --accent-tan: #bf8c70;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--deep-dark);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            color: var(--deep-blue);
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--deep-blue);
+        }
+
+        .nav-link {
+            color: var(--deep-dark);
+            font-weight: 500;
+        }
+        
+        .nav-link.active, .nav-link:hover {
+            color: var(--accent-blue);
+        }
+
+        #hero {
+            background-color: var(--deep-blue);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 1rem auto;
+        }
+
+        .btn-primary {
+            background-color: var(--deep-brown);
+            border-color: var(--deep-brown);
+            padding: 12px 25px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-dark-brown);
+            border-color: var(--accent-dark-brown);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            margin-top: 20px;
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            color: var(--deep-blue);
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--deep-brown);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            color: var(--accent-blue);
+        }
+        
+        .service-card .icon {
+            font-size: 3rem;
+            color: var(--deep-brown);
+        }
+
+        .about-text {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .about-commitment {
+            background-color: var(--accent-light-blue);
+            color: var(--deep-dark);
+            padding: 20px;
+            border-left: 5px solid var(--accent-blue);
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #6c757d;
+            padding: 20px;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        #planos {
+            background-color: var(--light-bg);
+        }
+
+        .pricing-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pricing-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card .card-header {
+            background-color: var(--deep-blue);
+            color: white;
+            padding: 20px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .pricing-card .card-header h3 {
+             color: white;
+             margin: 0;
+        }
+
+        .pricing-card .card-body {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--deep-brown);
+        }
+        
+        .pricing-card .price-note {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .pricing-card ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-card ul li:last-child {
+            border-bottom: none;
+        }
+        
+        #contato {
+            background-color: var(--deep-blue);
+            color: white;
+        }
+
+        #contato .section-title h2, #contato h3 {
+            color: white;
+        }
+        
+        #contato .section-title h2::after {
+            background: var(--accent-light-blue);
+        }
+        
+        #contato a {
+            color: var(--accent-light-blue);
+            text-decoration: none;
+        }
+
+        #contato a:hover {
+            color: white;
+        }
+        
+        footer {
+            background-color: var(--deep-dark);
+            color: #ccc;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+            /* Estilos para a NOVA Seção "Sobre" */
+        #sobre .text-primary {
+            color: var(--accent-blue) !important;
+        }
+
+        #sobre .list-unstyled .bi {
+            font-size: 1.2rem;
+            color: var(--deep-brown);
+        }
+
+        #sobre .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--accent-light-blue);
+            color: var(--deep-blue);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        #sobre .col-lg-3:hover .icon-circle {
+            background-color: var(--deep-brown);
+            color: white;
+        }
+
+        /* Estilos e Animação para a Seção Hero */
+        #hero {
+            min-height: 80vh; /* Garante que a seção ocupe uma boa parte da tela */
+            display: flex;
+            align-items: center; /* Centraliza o conteúdo verticalmente */
+        }
+
+        .hero-logo {
+            max-height: 400px; /* Define uma altura máxima para o logo */
+            width: auto;
+            margin-left: -30px;
+           
+        }
+
+        /* Define o estado inicial dos elementos animados (invisíveis) */
+        .hero-logo, .hero-title, .hero-subtitle, .hero-cta {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Aplica um atraso diferente para cada elemento, criando a sequência */
+        .hero-title {
+            animation-delay: 0.2s;
+        }
+
+        .hero-subtitle {
+            animation-delay: 0.4s;
+        }
+
+        .hero-cta {
+            animation-delay: 0.6s;
+        }
+        /* --- ESTILOS GLOBAIS PARA COMPONENTES --- */
+
+        /* Estilo para o círculo do ícone (agora funciona em qualquer seção) */
+        .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--accent-light-blue);
+            color: var(--deep-blue);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Efeito Hover para a seção "Sobre" */
+        #sobre .col-lg-3:hover .icon-circle {
+            background-color: var(--deep-brown);
+            color: white;
+        }
+
+        /* Efeito Hover para a seção "Serviços" */
+        #servicos .service-card:hover .icon-circle {
+            background-color: var(--deep-brown);
+            color: white;
+        }
+
+        /* Outros estilos que estavam no bloco anterior */
+        #sobre .text-primary {
+            color: var(--accent-blue) !important;
+        }
+
+        #sobre .list-unstyled .bi {
+            font-size: 1.2rem;
+            color: var(--deep-brown);
+        }
+
+        /* Definição da animação (surgindo de baixo para cima) */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Para telas de tablets (768px de largura ou menos) */
+        @media (max-width: 768px) {
+        .hero-logo {
+            max-height: 120px; /* Diminui o logo para tablets */
+            margin-left: 0;   /* Opcional: remove o deslocamento para a esquerda em telas menores */
+        }
+        }
+
+        /* Para telas de celulares (576px de largura ou menos) */
+        @media (max-width: 576px) {
+        .hero-logo {
+            max-height: 250px; /* Deixa o logo ainda menor para celulares */
+        }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar-main">
+
+    <nav id="navbar-main" class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Deep Consultoria</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#hero">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#clientes">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#planos">Planos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            
+            <img src="https://deepconsultoria.com/wp-content/uploads/2025/07/803d5d93-460b-422f-a54f-03192c806d8d.jpeg" alt="Logo Deep Consultoria" class="hero-logo mb-4">
+            
+            <h1 class="hero-title">Estruturando com qualidade, construindo com excelência</h1>
+            
+            <p class="hero-subtitle">A Deep Consultoria nasceu com o propósito de transformar conhecimento técnico em soluções práticas e personalizadas, que impulsionam empresas rumo à excelência.</p>
+            
+            <a href="#servicos" class="btn btn-primary hero-cta">Conheça Nossos Serviços</a>
+
+        </div>
+    </section>
+    <main>
+        <section id="sobre" class="py-5">
+            <div class="container">
+                <div class="section-title text-center mb-5">
+                    <h2>Nossa Essência é a Engenharia de Soluções</h2>
+                    <p class="lead text-muted">A Deep nasceu com um propósito claro: transformar conhecimento técnico em soluções práticas e personalizadas que impulsionam empresas rumo à excelência.</p>
+                </div>
+
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6">
+                        <h3 class="mb-3">Movidos por Desafios, Entregamos Resultados</h3>
+                        <p>Somos uma equipe que encara desafios como oportunidades. Para nós, normas e exigências não são obstáculos, mas o ponto de partida para o crescimento inteligente. Atuamos desde 2021 em segmentos diversos como químico, metalúrgico, logístico e construção civil, sempre com o mesmo foco: gerar valor real.</p>
+                        <p>Nossa política é simples: <strong>qualidade não é um requisito, é o nosso jeito de pensar, agir e entregar.</strong></p>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body p-4">
+                                <h5 class="card-title">Nossa Atuação na Prática:</h5>
+                                <ul class="list-unstyled">
+                                    <li class="d-flex align-items-start mb-2">
+                                        <i class="bi bi-shield-check me-3 mt-1 text-primary"></i>
+                                    <span>Implantamos sistemas de gestão ISO (9001, 14000, 45000).</span>
+                                    </li>
+                                    <li class="d-flex align-items-start mb-2">
+                                        <i class="bi bi-file-earmark-text me-3 mt-1 text-primary"></i>
+                                    <span>Destravamos licenciamentos e processos regulatórios complexos.</span>
+                                    </li>
+                                    <li class="d-flex align-items-start mb-2">
+                                        <i class="bi bi-people me-3 mt-1 text-primary"></i>
+                                    <span>Treinamos equipes com foco na aplicação prática e segura das normas.</span>
+                                    </li>
+                                    <li class="d-flex align-items-start">
+                                        <i class="bi bi-graph-up-arrow me-3 mt-1 text-primary"></i>
+                                    <span>Otimizamos processos com um olhar estratégico para a eficiência.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-5">
+                <div class="text-center mb-5">
+                    <h3>Pilares do Nosso Compromisso</h3>
+                    <p class="text-muted">Acreditamos que a excelência se constrói sobre valores sólidos.</p>
+                </div>
+
+                <div class="row text-center g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="p-4">
+                            <div class="icon-circle mb-3 mx-auto">
+                                <i class="bi bi-ear"></i>
+                            </div>
+                            <h5>Escuta Estratégica</h5>
+                            <p>Ouvir o cliente com máxima atenção para agir com estratégia e precisão.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="p-4">
+                            <div class="icon-circle mb-3 mx-auto">
+                                <i class="bi bi-lightbulb"></i>
+                            </div>
+                            <h5>Time de Alta Performance</h5>
+                            <p>Manter nossa equipe sempre afiada, atualizada e comprometida com os resultados.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="p-4">
+                            <div class="icon-circle mb-3 mx-auto">
+                                <i class="bi bi-journal-check"></i>
+                            </div>
+                            <h5>Ética e Transparência</h5>
+                            <p>Cumprir todas as normas, leis e exigências com total integridade.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="p-4">
+                            <div class="icon-circle mb-3 mx-auto">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </div>
+                            <h5>Melhoria Contínua</h5>
+                            <p>Aprimorar constantemente nossos serviços, processos e visão de futuro./p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+       <section id="servicos" class="py-5 bg-light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Nossos Serviços</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="icon-circle mb-4 mx-auto">
+                                <i class="bi bi-patch-check"></i>
+                            </div>
+                            <h3>Sistemas de Gestão ISO</h3>
+                            <p>Implantamos sistemas de gestão (9001, 14000, 45000), destravamos licenciamentos e otimizamos processos com olhar estratégico.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="icon-circle mb-4 mx-auto">
+                                <i class="bi bi-card-checklist"></i>
+                            </div>
+                            <h3>Licenciamento e Regulatório</h3>
+                            <p>Navegamos pela complexidade de licenciamentos e normas regulatórias para garantir a conformidade e operação do seu negócio.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="icon-circle mb-4 mx-auto">
+                                <i class="bi bi-cone-striped"></i>
+                            </div>
+                            <h3>Segurança do Trabalho</h3>
+                            <p>Oferecemos treinamentos com foco na prática e implementação das Normas Regulamentadoras para um ambiente de trabalho mais seguro.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="icon-circle mb-4 mx-auto">
+                                <i class="bi bi-recycle"></i>
+                            </div>
+                            <h3>ESG e Sustentabilidade</h3>
+                            <p>Desenvolvemos e implementamos estratégias de ESG para agregar valor à sua marca e garantir um futuro sustentável.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="icon-circle mb-4 mx-auto">
+                                <i class="bi bi-diagram-3"></i>
+                            </div>
+                            <h3>Engenharia de Processos</h3>
+                            <p>Analisamos e otimizamos seus processos para maior eficiência, redução de custos e aumento da produtividade.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card">
+                            <div class="icon-circle mb-4 mx-auto">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                            <h3>Consultoria Estratégica</h3>
+                            <p>Oferecemos consultoria para estruturação de processos, definição de KPIs e implementação de ações de melhoria contínua.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="clientes" class="py-5">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Nossos Clientes e Parceiros</h2>
+                     <p>Estes são os parceiros que acreditaram na nossa excelência e viram seu potencial transformado em resultados.</p>
+                </div>
+                <!-- colocar as logos dos clientes, pedir para o ruan deixar em um padrao legal -->
+                <div class="row text-center align-items-center">
+                    <div class="col-lg-2 col-md-4 col-6"><div class="client-logo">FIX Facilities</div><img src="https://deepconsultoria.com/wp-content/uploads/2025/07/image.png" alt=""></div>
+                    <div class="col-lg-2 col-md-4 col-6"><div class="client-logo">Barbi do Brasil</div><img src="https://deepconsultoria.com/wp-content/uploads/2025/07/image-4-e1753898988889.png" alt=""></div>
+                    <div class="col-lg-2 col-md-4 col-6"><div class="client-logo">Loger Logística</div><img src="https://deepconsultoria.com/wp-content/uploads/2025/07/logerlogistica_logo-e1753898579802.jpg" alt=""></div>
+                    <div class="col-lg-2 col-md-4 col-6"><div class="client-logo">Viacolor</div><img src="https://deepconsultoria.com/wp-content/uploads/2025/07/logoViaColor-e1753898843726.jpg" alt=""></div>
+                    <div class="col-lg-2 col-md-4 col-6"><div class="client-logo">PGM Acabamentos</div></div>
+                    <div class="col-lg-2 col-md-4 col-6"><div class="client-logo">Resolução Engenharia</div><img src="https://deepconsultoria.com/wp-content/uploads/2025/07/image-5-e1753899168480.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planos" class="py-5">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Planos de Investimentos</h2>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-4 d-flex align-items-stretch">
+                        <div class="pricing-card">
+                             <div class="card-header"><h3>Plano Flexível</h3></div>
+                            <div class="card-body">
+                                <h4 class="card-title">Horas</h4>
+                                <p>Atendimento diário, semanal ou quinzenal, conforme sua necessidade.</p>
+                                <div class="price">R$ 110,00<span style="font-size: 1.5rem;">/hora</span></div>
+                                <p class="price-note">*Sem prazo estabelecido.</p>
+                                <ul class="my-4">
+                                    <li>Mínimo de 40 horas</li>
+                                    <li>Ideal para demandas pontuais</li>
+                                    <li>Flexibilidade total</li>
+                                </ul>
+                                <a href="#contato" class="btn btn-primary">Contratar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex align-items-stretch">
+                        <div class="pricing-card">
+                            <div class="card-header"><h3>Plano Contínuo</h3></div>
+                            <div class="card-body">
+                                <h4 class="card-title">Mensal</h4>
+                                <p>Contrato de atendimento mensal para acompanhamento contínuo.</p>
+                                <div class="price">R$ 1.900,00<span style="font-size: 1.5rem;">/mês</span></div>
+                                <p class="price-note">*Sem prazo de contrato estabelecido.</p>
+                                 <ul class="my-4">
+                                    <li>Visitas semanais</li>
+                                    <li>Reuniões online via Teams</li>
+                                    <li>Suporte constante</li>
+                                </ul>
+                                <a href="#contato" class="btn btn-primary">Contratar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex align-items-stretch">
+                        <div class="pricing-card">
+                             <div class="card-header"><h3>Projeto Completo</h3></div>
+                            <div class="card-body">
+                                <h4 class="card-title">Certificação</h4>
+                                <p>Contrato fechado para implantação e certificação.</p>
+                                <div class="price">R$ 12.000,00</div>
+                                <p class="price-note">Prazo de 6 meses.</p>
+                                 <ul class="my-4">
+                                     <li>Mínimo de 3 visitas semanais</li>
+                                     <li>Reuniões online via Teams</li>
+                                     <li>Garantia de resultado</li>
+                                 </ul>
+                                <a href="#contato" class="btn btn-primary">Contratar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contato" class="py-5">
+            <div class="container text-center">
+                <div class="section-title">
+                    <h2>Entre em Contato</h2>
+                    <p class="text-white-50">Vamos transformar os desafios da sua empresa em oportunidades. <br> Fale conosco para um diagnóstico sem compromisso.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="d-flex flex-column align-items-center">
+
+                            <a href="https://wa.me/5511991913492" target="_blank" class="h4 text-decoration-none mb-3">
+                                <i class="bi bi-whatsapp"></i> Whatsapp: (11) 99191-3492
+                            </a>
+
+                            <a href="https://www.instagram.com/deep_consultoria" target="_blank" class="h4 text-decoration-none mb-3">
+                                <i class="bi bi-instagram"></i> @deep_consultoria
+                            </a>
+
+                            <a href="https://www.linkedin.com/company/deep-desenvolvimento-e-envolvimento-estrategico-de-pessoas/" target="_blank" class="h4 text-decoration-none mb-3">
+                                <i class="bi bi-linkedin"></i> Deep Consultoria
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Deep Consultoria. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainNav = document.getElementById('navbar-main');
+            if (mainNav) {
+                new bootstrap.ScrollSpy(document.body, {
+                    target: '#navbar-main',
+                    offset: 70, 
+                });
+            }
+        });
+    </script>
+</body>
+</html>
